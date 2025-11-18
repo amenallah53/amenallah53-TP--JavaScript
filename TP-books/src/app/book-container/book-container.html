@@ -1,0 +1,11 @@
+<app-book-list 
+  [books]="books" 
+  (bookDeleted)="deleteBook($event)"
+  (bookEdited)="editBook($event)">
+</app-book-list>
+
+<app-book-form 
+  [bookToEdit]="bookBeingEdited"
+  (bookAdded)="addBook($event)"
+  (bookUpdated)="updateBook($event)">
+</app-book-form>

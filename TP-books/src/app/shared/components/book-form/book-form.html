@@ -1,0 +1,138 @@
+<h2>Ajouter un livre</h2>
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+    <!-- Title -->
+    <div>
+        <label for="title">Titre :</label>
+        <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="newBook.title"
+        required
+        minlength="3"
+        #titleRef="ngModel"
+        pattern=".*[a-zA-Z].*"
+        />
+        <div class="error" *ngIf="titleRef.invalid && titleRef.dirty">
+        <small *ngIf="titleRef.errors?.['required']">Le titre est requis.</small>
+        <small *ngIf="titleRef.errors?.['minlength']">Minimum 3 caractères.</small>
+        </div>
+    </div>
+
+    <!-- Author -->
+    <div>
+        <label for="author">Auteur :</label>
+        <input
+        type="text"
+        id="author"
+        name="author"
+        [(ngModel)]="newBook.author"
+        required
+        minlength="3"
+        #authorRef="ngModel"
+        />
+        <div class="error" *ngIf="authorRef.invalid && authorRef.dirty">
+        <small *ngIf="authorRef.errors?.['required']">L'auteur est requis.</small>
+        <small *ngIf="authorRef.errors?.['minlength']">Minimum 3 caractères.</small>
+        </div>
+    </div>
+
+    <!-- Publisher Email -->
+    <div>
+        <label for="publisherEmail">Email éditeur :</label>
+        <input
+        type="email"
+        id="publisherEmail"
+        name="publisherEmail"
+        [(ngModel)]="newBook.publisherEmail"
+        required
+        email
+        #emailRef="ngModel"
+        />
+        <div class="error" *ngIf="emailRef.invalid && emailRef.dirty">
+        <small *ngIf="emailRef.errors?.['required']">Email requis.</small>
+        <small *ngIf="emailRef.errors?.['email']">Email invalide.</small>
+        </div>
+    </div>
+
+    <!-- Publisher Phone -->
+    <div>
+        <label for="publisherPhone">Téléphone éditeur :</label>
+        <input
+        type="number"
+        id="publisherPhone"
+        name="publisherPhone"
+        [(ngModel)]="newBook.publisherPhone"
+        min="20000000"
+        max="99999999"
+        pattern="^[0-9]{8}$"
+        #phoneRef="ngModel"
+        />
+        <div class="error" *ngIf="phoneRef.invalid && phoneRef.dirty">
+        <small *ngIf="phoneRef.errors?.['pattern']">Numéro invalide (8 chiffres).</small>
+        <small *ngIf="phoneRef.errors?.['min'] || phoneRef.errors?.['max']">Numéro hors plage.</small>
+        </div>
+    </div>
+
+    <!-- Release Date -->
+    <div>
+        <label for="releaseDate">Date de sortie :</label>
+        <input
+        type="date"
+        id="releaseDate"
+        name="releaseDate"
+        [(ngModel)]="newBook.releaseDate"
+        required
+        #dateRef="ngModel"
+        />
+        <div class="error" *ngIf="dateRef.invalid && dateRef.dirty">
+        <small *ngIf="dateRef.errors?.['required']">La date de sortie est requise.</small>
+        </div>
+    </div>
+
+    <!-- Category -->
+    <div>
+        <label for="category">Catégorie :</label>
+        <select
+        id="category"
+        name="category"
+        [(ngModel)]="newBook.category"
+        required
+        #catRef="ngModel"
+        >
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+        </select>
+        <div class="error" *ngIf="catRef.invalid && catRef.dirty">
+        <small *ngIf="catRef.errors?.['required']">La catégorie est requise.</small>
+        </div>
+    </div>
+
+    <!-- Availability -->
+    <div>
+        <label for="isAvailable">
+        <input
+            type="checkbox"
+            id="isAvailable"
+            name="isAvailable"
+            [(ngModel)]="newBook.isAvailable"
+        />
+        Disponible ?
+        </label>
+    </div>
+
+    <!-- Stock (optional) -->
+    <div>
+        <label for="stock">Stock :</label>
+        <input
+        type="number"
+        id="stock"
+        name="stock"
+        [(ngModel)]="newBook.stock"
+        min="0"
+        />
+    </div>
+
+    <button type="submit" [disabled]="bookForm.invalid">
+        {{ newBook.id === 0 ? 'Ajouter' : 'Mettre à jour' }}
+    </button>
+</form>

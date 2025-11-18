@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 10px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+app-book-form, app-book-list {
+  width: 100%;
+  max-width: 600px;
+}

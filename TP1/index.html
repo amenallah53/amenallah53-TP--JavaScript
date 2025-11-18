@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP1 - Exercices 8 & 9</title>
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f9f9f9;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>TP1 - Exercices 8 et 9</h1>
+    
+    <button id="btnEx8">Exercice 8</button>
+    <button id="btnEx9">Exercice 9</button>
+
+    <div id="output">Résultats affichés ici...</div>
+
+    <!-- Scripts -->
+    <script src="ex8.js"></script>
+    <script src="ex9.js"></script>
+    <script>
+        document.getElementById("btnEx8").addEventListener("click", runEx8);
+        document.getElementById("btnEx9").addEventListener("click", getAPIData);
+    </script>
+</body>
+</html>
