@@ -1,0 +1,22 @@
+<h2>Liste des tâches</h2>
+
+<p *ngIf="taches.length === 0">Aucune tâche à afficher</p>
+
+<div *ngFor="let t of taches"
+     [ngClass]="{'done': t.complete}"
+     [ngStyle]="{
+       'color': t.priorite === 'haute' ? 'red' :
+                t.priorite === 'moyenne' ? 'orange' : 'green'
+     }">
+
+  <input type="checkbox" (change)="toggle(t)">
+  {{ t.description }}
+</div>
+
+<div *ngIf="taches.length > 0; else noTasks">
+  <h3>Vos tâches :</h3>
+</div>
+
+<ng-template #noTasks>
+  <p>Vous n'avez pas de tâches en cours</p>
+</ng-template>

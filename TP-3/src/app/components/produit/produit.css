@@ -1,0 +1,22 @@
+div {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 25px;
+}
+
+div img {
+    width: 100%;
+    
+}
+
+.en-stock {
+    width: 50%;
+    border: 2px solid green;
+    background-color: #e0ffe0;
+}
+.hors-stock {
+    width: 50%;
+    border: 2px solid red;
+    background-color: #ffe0e0;
+}

@@ -1,0 +1,15 @@
+.important {
+  background: #ffcccc;
+  border: 2px solid red;
+  padding: 10px;
+}
+.moyen {
+  background: #fff2cc;
+  border: 2px solid orange;
+  padding: 10px;
+}
+.faible {
+  background: #ccffcc;
+  border: 2px solid green;
+  padding: 10px;
+}

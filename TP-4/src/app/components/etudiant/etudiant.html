@@ -1,0 +1,17 @@
+<h2>Liste des Étudiants</h2>
+
+<ul class="etudiants">
+  <li *ngFor="let e of etuds"
+      (click)="onSelect(e)"
+      [class.selected]="e === selectedEtudiant">
+
+    <span class="badge">{{e.id}}</span> {{e.name}}
+
+  </li>
+</ul>
+
+<div *ngIf="selectedEtudiant">
+  <h3>Détails</h3>
+  <p>ID : {{selectedEtudiant.id}}</p>
+  <p>Nom : {{selectedEtudiant.name}}</p>
+</div>

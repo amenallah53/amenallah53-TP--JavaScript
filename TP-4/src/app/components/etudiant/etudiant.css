@@ -1,0 +1,25 @@
+.etudiants { list-style: none; padding: 0; }
+
+.etudiants li {
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.etudiants li:hover {
+  background: #e0e0e0;
+}
+
+.etudiants li.selected {
+  background: #90caf9;
+  border-color: #1e88e5;
+}
+
+.badge {
+  background: #1e88e5;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
