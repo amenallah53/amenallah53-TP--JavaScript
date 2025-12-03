@@ -1,16 +1,28 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+interface Produit {
+  id: number;
+  nom: string;
+  stock: number;
+}
 
 @Component({
   selector: 'app-produits',
-  imports: [NgFor],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './produits.html',
-  styleUrl: './produits.css',
+  styleUrls: ['./produits.css']
 })
-export class Produits {
-  produits = [
-    { nom: "PC Portable", stock: 80 },
-    { nom: "Souris", stock: 35 },
-    { nom: "Clavier", stock: 10 }
+export class ProduitsComponent {
+  produits: Produit[] = [
+    { id: 1, nom: 'Souris', stock: 12 },
+    { id: 2, nom: 'Clavier', stock: 65 },
+    { id: 3, nom: 'Écran', stock: 40 },
   ];
+
+  adjustStock(p: Produit, delta: number) {
+    p.stock = Math.max(0, p.stock + delta);
+  }
 }

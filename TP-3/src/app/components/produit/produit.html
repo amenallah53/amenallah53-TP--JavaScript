@@ -1,15 +1,36 @@
-<div>
-    <div [ngClass]="{'en-stock': enStock, 'hors-stock': !enStock}"
-    [ngStyle]="{'opacity': enStock ? '1' : '0.5'}">
-        <h3>{{ nomProduit }}</h3>
-        <p>Description du produit...</p>
+<div class="flex flex-col gap-3 rounded-[25px] 
+    border-1 border-[#8c8c8c]/10 w-[300px] hover:shadow-md ">
+    <div class="relative">
+        <img class="rounded-t-[25px] h-[200px] w-full object-fit" [src]="imgUrl" alt="macbook">
+        <div
+            class="absolute top-3 right-3 text-white rounded-[12px] px-3 py-2"
+            [ngClass]="enStock ? 'bg-green-700' : 'bg-red-700'"
+        >
+        {{ enStock ? 'En Stock' : 'Rupture' }}
+        </div>
     </div>
-    <button (click)="toggleStock()">
-        {{ enStock ? 'Marquer comme Hors Stock' : 'Marquer comme En Stock' }}
-    </button>
-    <button (click)="ajouterProduit()" [disabled]="!enStock">
-        Ajouter au Panier
-    </button>
-    <img [src]="imgUrl" alt="macbook">
-    <button (click)="afficherAlerte()" >Click Product</button>
+    <div class="flex flex-col p-3 gap-2">
+        <h1 class="text-[24px] font-semibold text-[#262626]">{{nomProduit}}</h1>
+        <h3 class="text-[#262626] text-[16px] font-medium">{{price}} TND</h3>
+    
+            <button 
+            class="hover:cursor-pointer hover:bg-[#780185] 
+            bg-[#ac00bf] rounded-[25px] text-white font-semibold text-[16px] w-full py-2" 
+            (click)="afficherAlerte()" >Click Product</button>
+            <button
+            class="hover:cursor-pointer hover:bg-[#780185] 
+            bg-[#ac00bf] rounded-[25px] text-white font-semibold text-[16px] w-full py-2"  
+            (click)="toggleStock()">
+            {{ enStock ? 'Marquer comme En Rupture' : 'Marquer comme En Stock' }}
+            </button>
+            <button 
+            class="hover:cursor-pointer hover:bg-[#780185] 
+            bg-[#ac00bf] rounded-[25px] text-white font-semibold text-[16px] w-full py-2
+            disabled:opacity-50 disabled:cursor-not-allowed"
+            (click)="ajouterProduit()"
+            [disabled]="!enStock"
+            >
+            Ajouter au Panier
+            </button>
+    </div>
 </div>

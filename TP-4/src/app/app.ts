@@ -1,13 +1,19 @@
-import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet
+  ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('TP-4');
+  title = 'tp4-angular-standalone';
 }
+
+

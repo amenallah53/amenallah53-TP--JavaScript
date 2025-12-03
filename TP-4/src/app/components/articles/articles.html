@@ -1,23 +1,34 @@
-<input type="text" [(ngModel)]="newTitle" placeholder="Titre">
-<input type="text" [(ngModel)]="newContent" placeholder="Contenu">
+<nav class="topnav">
+  <a href="/">Welcome</a>
+  <a href="/articles">Articles</a>
+  <a href="/produits">Produits</a>
+  <a href="/taches">Tâches</a>
+  <a href="/etudiants">Étudiants</a>
+</nav>
+<section class="card">
+  <h2>Articles</h2>
+  <div class="form">
+    <input [(ngModel)]="newTitle" placeholder="Titre de l'article" />
+    <input [(ngModel)]="newContent" placeholder="Contenu de l'article" />
+    <select [(ngModel)]="newImportance">
+      <option value="élevée">Élevée</option>
+      <option value="moyenne">Moyenne</option>
+      <option value="faible">Faible</option>
+    </select>
+    <button (click)="addArticle()">Ajouter l'article</button>
+  </div>
+  <p class="msg" *ngIf="message">{{message}}</p>
 
-<select [(ngModel)]="newImportance">
-  <option value="élevée">Élevée</option>
-  <option value="moyenne">Moyenne</option>
-  <option value="faible">Faible</option>
-</select>
-
-<button (click)="addArticle()">Ajouter</button>
-
-<hr>
-
-<div *ngFor="let article of articles"
-     [ngClass]="{
-       'important': article.importance==='élevée',
-       'moyen': article.importance==='moyenne',
-       'faible': article.importance==='faible'
-     }">
-
-  <h3>{{ article.titre }}</h3>
-  <p>{{ article.contenu }}</p>
-</div>
+  <div class="list">
+    <div *ngFor="let article of articles" class="article"
+         [ngClass]="{
+           'important': article.importance === 'élevée',
+           'moyen': article.importance === 'moyenne',
+           'faible': article.importance === 'faible'
+         }">
+      <h3>{{article.titre}}</h3>
+      <p>{{article.contenu}}</p>
+      <small>Importance : {{article.importance}}</small>
+    </div>
+  </div>
+</section>

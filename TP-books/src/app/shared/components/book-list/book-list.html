@@ -1,17 +1,19 @@
 <h2>Liste de livres</h2>
 
-<input 
-  type="text" 
-  placeholder="Rechercher un livre..." 
-  [(ngModel)]="searchTerm"
-  class="search-box"
-/>
+<div class="up">
+  <input 
+    type="text" 
+    placeholder="Rechercher un livre..." 
+    [(ngModel)]="searchTerm"
+    class="search-box"
+  />
 
-<select [(ngModel)]="sortType" class="sort-box">
-  <option value="">-- Trier par --</option>
-  <option value="category">Catégorie</option>
-  <option value="available">Disponibilité</option>
-</select>
+  <select [(ngModel)]="sortType" class="sort-box">
+    <option value="">-- Trier par --</option>
+    <option value="category">Catégorie</option>
+    <option value="available">Disponibilité</option>
+  </select>
+</div>
 <p>Total affichés : {{ filteredBooks().length }}</p>
 
 <table>
@@ -30,7 +32,7 @@
       <td>{{ book.author }}</td>
       <td>{{ book.category }}</td>
       <td>{{ book.isAvailable ? 'Oui' : 'Non' }}</td>
-      <td>
+      <td class="btns">
         <button (click)="editAction(book)">Editer</button>
         <button (click)="deleteAction(book.id)">Supprimer</button>
       </td>

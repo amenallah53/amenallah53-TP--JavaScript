@@ -1,0 +1,6 @@
+.container form {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-direction: column;
+}

@@ -1,10 +1,24 @@
-<div *ngFor="let p of produits">
-  <h3>{{ p.nom }}</h3>
-
-  <p [ngStyle]="{
-      'color': p.stock > 50 ? 'green' :
-               p.stock >= 20 ? 'orange' : 'red'
-  }">
-    Stock : {{ p.stock }}
-  </p>
-</div>
+<nav class="topnav">
+  <a href="/">Welcome</a>
+  <a href="/articles">Articles</a>
+  <a href="/produits">Produits</a>
+  <a href="/taches">Tâches</a>
+  <a href="/etudiants">Étudiants</a>
+</nav>
+<section class="card">
+  <h2>Produits</h2>
+  <ul class="produits">
+    <li *ngFor="let p of produits" class="produit">
+      <div class="info">
+        <strong>{{p.nom}}</strong>
+        <span [ngStyle]="{'color': p.stock > 50 ? 'green' : (p.stock >= 20 ? 'orange' : 'red')}">
+          Stock: {{p.stock}}
+        </span>
+      </div>
+      <div class="actions">
+        <button (click)="adjustStock(p, -1)">-</button>
+        <button (click)="adjustStock(p, +1)">+</button>
+      </div>
+    </li>
+  </ul>
+</section>

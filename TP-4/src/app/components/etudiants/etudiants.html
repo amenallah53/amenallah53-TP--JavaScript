@@ -1,0 +1,27 @@
+<nav class="topnav">
+  <a href="/">Welcome</a>
+  <a href="/articles">Articles</a>
+  <a href="/produits">Produits</a>
+  <a href="/taches">Tâches</a>
+  <a href="/etudiants">Étudiants</a>
+</nav>
+<section class="card">
+  <h2>Liste des Étudiants</h2>
+
+  <ul class="etudiants">
+    <li *ngFor="let e of etuds"
+        [class.selected]="e === selectedEtudiant"
+        (click)="onSelect(e)">
+      <span class="badge">{{e.id}}</span> {{e.name}}
+    </li>
+  </ul>
+
+  <div *ngIf="selectedEtudiant" class="detail">
+    <h3>Détails</h3>
+    <p><strong>ID:</strong> {{selectedEtudiant.id}}</p>
+    <p><strong>Nom:</strong> {{selectedEtudiant.name}}</p>
+    <p *ngIf="selectedEtudiant.classe"><strong>Classe:</strong> {{selectedEtudiant.classe}}</p>
+    <p *ngIf="selectedEtudiant.age"><strong>Age:</strong> {{selectedEtudiant.age}}</p>
+    <p *ngIf="selectedEtudiant.email"><strong>Email:</strong> {{selectedEtudiant.email}}</p>
+  </div>
+</section>

@@ -56,3 +56,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
+h2 {
+  text-align: center;
+}

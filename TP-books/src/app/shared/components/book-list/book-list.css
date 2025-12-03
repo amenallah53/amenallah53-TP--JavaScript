@@ -40,3 +40,20 @@ button:last-of-type {
   background-color: #dc3545;
   color: white;
 }
+
+
+h2 {
+  text-align: center;
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

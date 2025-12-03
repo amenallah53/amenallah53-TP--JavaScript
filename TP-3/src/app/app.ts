@@ -9,7 +9,8 @@ import { Panier } from './components/panier/panier';
   selector: 'app-root',
   imports: [RouterOutlet,Bienvenue,Produit,Utilisateur,Panier],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  standalone: true
 })
 export class App {
   protected readonly title = signal('TP-3');
@@ -17,5 +18,6 @@ export class App {
   gererAjoutAuPanier(nomProduit: string): void {
     this.panierItems.push(nomProduit);
     console.log(`${nomProduit} ajouté au panier.`);
+    console.log(`${this.panierItems}`)
   }
 }

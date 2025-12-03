@@ -24,36 +24,42 @@
     box-shadow:0 1px 4px rgba(0,0,0,0.04); 
 }
 
-.add { 
-    display:flex; 
-    gap:.5rem; 
-    margin-bottom:.5rem; 
-}
-
-.taches { 
+.etudiants { 
     list-style:none; 
     padding:0; 
-    margin:0; 
+    margin:0 0 1rem 0; 
+    display:block; 
 }
 
-.taches li { 
-    display:flex; 
-    justify-content:space-between; 
-    align-items:center; 
-    padding:.4rem; 
+.etudiants li { 
+    padding:.5rem; 
     border-bottom:1px solid #f1f5f9; 
+    cursor:pointer; 
+    transition:background .12s; 
 }
 
-.strike { 
-    text-decoration: line-through; 
-    opacity: .7; 
+.etudiants li:hover { 
+    background:#f8fafc; 
 }
 
-.completed { 
-    background: #f8fafc; 
+.etudiants li.selected { 
+    background:#eef2ff; 
+    border-left:4px solid #6366f1; 
 }
 
-.prio { 
-    font-size:.75rem; 
-    color:#6b7280; 
+.badge { 
+    display:inline-block; 
+    width:28px;
+    height:20px; 
+    text-align:center; 
+    background:#eef2ff; 
+    border-radius:4px; 
+    margin-right:.5rem; 
+}
+
+.detail { 
+    background:#ffffff; 
+    padding:.75rem; 
+    border-radius:6px; 
+    border:1px solid #f3f4f6; 
 }
